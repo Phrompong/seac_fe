@@ -30,7 +30,7 @@ const Home = () => {
   const onChangeMenu = (e: any) => {
     switch (e.key) {
       case "user-management":
-        router.push("/auth");
+        router.push("/user_management");
         break;
       case "logout":
         router.push("/auth");
