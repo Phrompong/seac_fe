@@ -5,12 +5,16 @@ import Image from "next/image";
 import { Card } from "antd";
 import { Button, Form, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { useRouter } from "next/navigation";
 
 const Auth = () => {
+  const router = useRouter();
   const [form] = Form.useForm();
 
   const onSubmit = (params: { username: string; password: string }) => {
     console.table(params);
+
+    router.push("/home");
   };
 
   return (
