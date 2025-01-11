@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        login: "url('/images/bg.jpg')",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
