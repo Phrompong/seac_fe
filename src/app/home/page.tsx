@@ -14,13 +14,13 @@ import { useRouter } from "next/navigation";
 const Home = () => {
   const router = useRouter();
 
-  const menuList: { label: string; key: string }[] = [
+  const menuList: { label: any; key: string }[] = [
     {
-      label: "User Management",
+      label: <label className="sm:text:sm lg:text-xl">User Management</label>,
       key: "user-management",
     },
     {
-      label: "Logout",
+      label: <label className="sm:text:sm lg:text-xl">Logout</label>,
       key: "logout",
     },
   ];

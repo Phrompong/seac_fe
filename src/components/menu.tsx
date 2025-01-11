@@ -1,6 +1,6 @@
 "use client";
 import React, { Children, useState } from "react";
-import { Button, Menu } from "antd";
+import { Button, Menu, Layout } from "antd";
 import { useRouter, usePathname } from "next/navigation";
 import Icon, {
   ScheduleOutlined,
@@ -18,6 +18,8 @@ import Icon, {
 } from "@ant-design/icons";
 import WhiteLogo from "../../public/images/white_logo.png";
 import Image from "next/image";
+
+const { Header, Content, Footer, Sider } = Layout;
 
 const MainMenu = () => {
   const pathname = usePathname();
@@ -158,23 +160,23 @@ const MainMenu = () => {
   };
 
   return (
-    <div className="grid grid-rows-[1fr,4%] h-screen">
-      <Menu
-        onClick={onSelectedMenu}
-        defaultSelectedKeys={defaultSelectKey}
-        defaultOpenKeys={["sub1"]}
-        mode="vertical"
-        theme="dark"
-        inlineCollapsed={collapsed}
-        items={items}
-      ></Menu>
-      <label
-        className="flex justify-center items-center bg-[#002140] text-white"
-        onClick={toggleCollapsed}
+    <Layout className="h-screen">
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
       >
-        {collapsed ? ">" : "<"}
-      </label>
-    </div>
+        <Menu
+          onClick={onSelectedMenu}
+          defaultSelectedKeys={defaultSelectKey}
+          defaultOpenKeys={["sub1"]}
+          mode="vertical"
+          theme="dark"
+          inlineCollapsed={collapsed}
+          items={items}
+        ></Menu>
+      </Sider>
+    </Layout>
   );
 };
 
