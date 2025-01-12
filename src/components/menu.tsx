@@ -189,6 +189,9 @@ const MainMenu = () => {
       case "0-1":
         router.push("/auth");
         break;
+      case "9":
+        router.push("/content_management");
+        break;
       case "10":
         router.push("/trainer_management");
         break;
