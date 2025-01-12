@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { Button, Menu } from "antd";
+import { Button, Menu, Tag } from "antd";
 import MainMenu from "@/components/menu";
 import { Table, Flex } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
 import Content from "@/components/content";
+import ButtonAdd from "@/components/button_add";
 
 const UserManagement = () => {
   const router = useRouter();
@@ -78,6 +79,17 @@ const UserManagement = () => {
       columns={columns}
       dataSource={dataSource}
       onClick={onClickCreate}
+      childrenHeader={
+        <Flex justify="space-between">
+          <Flex>
+            <Tag color="blue" style={{ alignContent: "center" }}>
+              Latest Record
+            </Tag>
+            <label>-</label>
+          </Flex>
+          <ButtonAdd name="Create Room" onClick={onClickCreate}></ButtonAdd>
+        </Flex>
+      }
     ></Content>
   );
 };

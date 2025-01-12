@@ -1,5 +1,7 @@
 "use client";
+import ButtonAdd from "@/components/button_add";
 import Content from "@/components/content";
+import { Flex, Tag } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -122,6 +124,18 @@ const ContentManagement = () => {
       columns={columns}
       dataSource={dataSource}
       onClick={onClickCreate}
+      childrenHeader={
+        <Flex justify="space-between">
+          <Flex gap="small">
+            <Tag color="blue" style={{ alignContent: "center" }}>
+              Latest Record
+            </Tag>
+            <label className="p-1">[3] C3 Content 3</label>
+          </Flex>
+
+          <ButtonAdd name="Create Content" onClick={onClickCreate}></ButtonAdd>
+        </Flex>
+      }
     ></Content>
   );
 };

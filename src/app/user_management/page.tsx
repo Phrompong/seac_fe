@@ -6,6 +6,7 @@ import { Table, Flex } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
 import Content from "@/components/content";
+import ButtonAdd from "@/components/button_add";
 
 const UserManagement = () => {
   const router = useRouter();
@@ -78,6 +79,11 @@ const UserManagement = () => {
       columns={columns}
       dataSource={dataSource}
       onClick={onClickCreate}
+      childrenHeader={
+        <Flex justify="end">
+          <ButtonAdd name="Create User" onClick={onClickCreate}></ButtonAdd>
+        </Flex>
+      }
     ></Content>
   );
 };

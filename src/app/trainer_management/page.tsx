@@ -1,7 +1,10 @@
 "use client";
 import Content from "@/components/content";
+import { Button, Flex, Tag } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { PlusCircleOutlined, RedoOutlined } from "@ant-design/icons";
+import ButtonAdd from "@/components/button_add";
 
 const TrainerManagement = () => {
   const router = useRouter();
@@ -97,6 +100,36 @@ const TrainerManagement = () => {
       columns={columns}
       dataSource={dataSource}
       onClick={onClickCreate}
+      childrenHeader={
+        <Flex justify="space-between" gap="small">
+          <Flex>
+            <Tag color="blue" style={{ alignContent: "center" }}>
+              Total Record Trainer/Mod
+            </Tag>
+            <label className="p-1">3</label>
+          </Flex>
+
+          <Flex gap="small">
+            <Button
+              icon={<RedoOutlined />}
+              type="primary"
+              style={{
+                width: "auto",
+                backgroundColor: "white",
+                color: "black",
+              }}
+              variant="solid"
+            >
+              Force Download All ICS
+            </Button>
+
+            <ButtonAdd
+              name="Create Trainer/Mod"
+              onClick={onClickCreate}
+            ></ButtonAdd>
+          </Flex>
+        </Flex>
+      }
     ></Content>
   );
 };
