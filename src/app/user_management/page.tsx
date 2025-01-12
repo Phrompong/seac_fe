@@ -5,6 +5,7 @@ import MainMenu from "@/components/menu";
 import { Table, Flex } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
+import Content from "@/components/content";
 
 const UserManagement = () => {
   const router = useRouter();
@@ -66,28 +67,18 @@ const UserManagement = () => {
     },
   ];
 
+  const onClickCreate = () => {
+    router.push("/user_management/new");
+  };
+
   return (
-    <div className="flex flex-col gap-2">
-      <label className="text-lg font-medium">User Mangement</label>
-      <Flex justify="end">
-        <Button
-          icon={<PlusCircleOutlined />}
-          type="primary"
-          style={{
-            width: 120,
-            backgroundColor: "hsl(342, 92%, 33%)",
-            borderColor: "hsl(342, 92%, 33%)",
-          }}
-          variant="solid"
-          onClick={() => {
-            router.push("/user_management/new");
-          }}
-        >
-          Create User
-        </Button>
-      </Flex>
-      <Table dataSource={dataSource} columns={columns} />;
-    </div>
+    <Content
+      title="User Management"
+      btnCreateName="Create User"
+      columns={columns}
+      dataSource={dataSource}
+      onClick={onClickCreate}
+    ></Content>
   );
 };
 
