@@ -25,8 +25,40 @@ const MainMenu = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(true);
+
+  const selectMenu = (pathname: string) => {
+    switch (pathname) {
+      case "/home":
+        return ["0"];
+      case "/create_schedule":
+        return ["1"];
+      case "/planner":
+        return ["2"];
+      case "/trainer_schedule":
+        return ["3"];
+      case "/schedule_logs":
+        return ["4"];
+      case "/export_report":
+        return ["5"];
+      case "/mail_management":
+        return ["6"];
+      case "/map_schedule":
+        return ["7"];
+      case "/moderator_management":
+        return ["8"];
+      case "/content_management":
+        return ["9"];
+      case "/trainer_management":
+        return ["10"];
+      case "/room_management":
+        return ["11"];
+      case "/user_management":
+        return ["12"];
+    }
+  };
+
   const [defaultSelectKey, setDefaultSelectKey] = useState(
-    pathname === "/user_management" ? ["12"] : ["1"]
+    selectMenu(pathname)
   );
 
   const toggleCollapsed = () => {
@@ -150,12 +182,19 @@ const MainMenu = () => {
   ];
 
   const onSelectedMenu = (e: any) => {
-    if (e.key === "0-0") {
-      router.push("/home");
-    } else if (e.key === "0-1") {
-      router.push("/auth");
-    } else if (e.key === "12") {
-      router.push("/user_management");
+    switch (e.key) {
+      case "0-0":
+        router.push("/home");
+        break;
+      case "0-1":
+        router.push("/auth");
+        break;
+      case "11":
+        router.push("/room_management");
+        break;
+      case "12":
+        router.push("/user_management");
+        break;
     }
   };
 

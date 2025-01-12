@@ -17,7 +17,7 @@ const Home = () => {
   const menuList: { label: any; key: string }[] = [
     {
       label: <label className="sm:text:sm lg:text-xl">User Management</label>,
-      key: "user-management",
+      key: "user_management",
     },
     {
       label: <label className="sm:text:sm lg:text-xl">Logout</label>,
@@ -29,8 +29,9 @@ const Home = () => {
 
   const onChangeMenu = (e: any) => {
     switch (e.key) {
-      case "user-management":
+      case "user-user_management":
         router.push("/user_management");
+        break;
         break;
       case "logout":
         router.push("/auth");
@@ -135,6 +136,7 @@ const Home = () => {
                 style={{ marginBottom: 0 }}
               />
             }
+            onClick={() => router.push("/room_management")}
           >
             <Card.Meta title="Room Management" />
           </Card>

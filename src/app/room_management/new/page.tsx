@@ -1,27 +1,26 @@
 "use client";
-import { Card, Flex } from "antd";
-import { Form, Input, Select, Switch, Button } from "antd";
-import { SaveOutlined, ArrowLeftOutlined } from "@ant-design/icons";
-import React from "react";
-import { useRouter } from "next/navigation";
 import ContentAdd from "@/components/content_add";
+import { Button, Form, Input, Switch } from "antd";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { SaveOutlined, ArrowLeftOutlined } from "@ant-design/icons";
 
 type FieldType = {
-  username: string;
-  role: string;
-  roleModerator: string;
+  name: string;
+  type: string;
+  availableForContentFormat: string;
+  instancyLocationId: string;
+  instancyDisplayName: string;
   isActive: boolean;
 };
 
-const { Option } = Select;
-
-const NewUser = () => {
+const NewRoom = () => {
   const router = useRouter();
 
   return (
     <ContentAdd
-      title="Create User"
-      onClick={() => router.push("/user_management")}
+      title="Create Room"
+      onClick={() => router.push("/room_management")}
       children={
         <Form
           name="basic"
@@ -30,25 +29,30 @@ const NewUser = () => {
           size="middle"
         >
           <Form.Item<FieldType>
-            label="Username"
-            name="username"
+            label="Name"
+            name="name"
             rules={[{ required: true, message: "Please input your username!" }]}
           >
             <Input />
           </Form.Item>
 
-          <Form.Item name="role" label="Role" rules={[{ required: true }]}>
-            <Select allowClear></Select>
+          <Form.Item name="type" label="Type" rules={[{ required: true }]}>
+            <Input />
           </Form.Item>
 
           <Form.Item
-            name="roleModerator"
-            label="Role Moderator"
-            rules={[{ required: false }]}
+            name="availableForContentFormat"
+            label="Available For Content Format"
+            rules={[{ required: true }]}
           >
-            <Select allowClear></Select>
+            <Input />
           </Form.Item>
-
+          <Form.Item name="instancyLocationId" label="Instancy Location ID">
+            <Input />
+          </Form.Item>
+          <Form.Item name="instancyDisplayName" label="Instancy Display Name">
+            <Input />
+          </Form.Item>
           <Form.Item
             name="isActive"
             label="Is Active"
@@ -72,4 +76,4 @@ const NewUser = () => {
   );
 };
 
-export default NewUser;
+export default NewRoom;

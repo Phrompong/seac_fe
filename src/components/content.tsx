@@ -27,7 +27,7 @@ const Content: FC<Content> = (params: Content) => {
           variant="solid"
           onClick={params.onClick}
         >
-          Create User
+          {params.btnCreateName}
         </Button>
       </Flex>
       <Table dataSource={params.dataSource} columns={params.columns} />
