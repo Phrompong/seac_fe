@@ -106,6 +106,7 @@ const Home = () => {
                 style={{ marginBottom: 0 }}
               />
             }
+            onClick={() => router.push("/content_management")}
           >
             <Card.Meta title="Content Management" />
           </Card>
@@ -121,6 +122,7 @@ const Home = () => {
                 style={{ marginBottom: 0 }}
               />
             }
+            onClick={() => router.push("/trainer_management")}
           >
             <Card.Meta title="Trainer/Mod Management" />
           </Card>
