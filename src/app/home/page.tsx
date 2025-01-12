@@ -91,6 +91,7 @@ const Home = () => {
                 style={{ marginBottom: 0 }}
               />
             }
+            onClick={() => router.push("/moderator_management")}
           >
             <Card.Meta title="Moderator Manager View" />
           </Card>

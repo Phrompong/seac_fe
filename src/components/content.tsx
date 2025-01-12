@@ -5,10 +5,11 @@ import { PlusCircleOutlined, RedoOutlined } from "@ant-design/icons";
 
 type Content = {
   title: string;
-  btnCreateName: string;
-  columns: { title: string; dataIndex: string; key: string }[];
-  dataSource: any[];
+  btnCreateName?: string;
+  columns?: { title: string; dataIndex: string; key: string }[];
+  dataSource?: any[];
   onClick?: () => void;
+  children?: any;
   childrenHeader?: React.ReactNode;
 };
 
@@ -16,8 +17,14 @@ const Content: FC<Content> = (params: Content) => {
   return (
     <div className="flex flex-col gap-2">
       <label className="text-lg font-medium">{params.title}</label>
-      {params.childrenHeader}
-      <Table dataSource={params.dataSource} columns={params.columns} />
+      {params.children ? (
+        params.children
+      ) : (
+        <>
+          {params.childrenHeader}
+          <Table dataSource={params.dataSource} columns={params.columns} />
+        </>
+      )}
     </div>
   );
 };
