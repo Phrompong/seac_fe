@@ -1,9 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { Button, Menu } from "antd";
-import MainMenu from "@/components/menu";
-import { Table, Flex } from "antd";
-import { PlusCircleOutlined } from "@ant-design/icons";
+import React from "react";
+import { Flex } from "antd";
 import { useRouter } from "next/navigation";
 import Content from "@/components/content";
 import ButtonAdd from "@/components/button_add";

@@ -1,7 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 import MainMenu from "./menu";
-import { Layout, Menu, theme } from "antd";
 
 export default function LayoutMain({
   children,

@@ -1,7 +1,6 @@
 "use client";
-import { Card, Flex } from "antd";
 import { Form, Input, Select, Switch, Button } from "antd";
-import { SaveOutlined, ArrowLeftOutlined } from "@ant-design/icons";
+import { SaveOutlined } from "@ant-design/icons";
 import React from "react";
 import { useRouter } from "next/navigation";
 import ContentAdd from "@/components/content_add";
@@ -13,8 +12,6 @@ type FieldType = {
   isActive: boolean;
 };
 
-const { Option } = Select;
-
 const NewUser = () => {
   const router = useRouter();
 
@@ -22,53 +19,52 @@ const NewUser = () => {
     <ContentAdd
       title="Create User"
       onClick={() => router.push("/user_management")}
-      children={
-        <Form
-          name="basic"
-          labelCol={{ span: 8 }}
-          style={{ width: 700 }}
-          size="middle"
+    >
+      <Form
+        name="basic"
+        labelCol={{ span: 8 }}
+        style={{ width: 700 }}
+        size="middle"
+      >
+        <Form.Item<FieldType>
+          label="Username"
+          name="username"
+          rules={[{ required: true, message: "Please input your username!" }]}
         >
-          <Form.Item<FieldType>
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: "Please input your username!" }]}
-          >
-            <Input />
-          </Form.Item>
+          <Input />
+        </Form.Item>
 
-          <Form.Item name="role" label="Role" rules={[{ required: true }]}>
-            <Select allowClear></Select>
-          </Form.Item>
+        <Form.Item name="role" label="Role" rules={[{ required: true }]}>
+          <Select allowClear></Select>
+        </Form.Item>
 
-          <Form.Item
-            name="roleModerator"
-            label="Role Moderator"
-            rules={[{ required: false }]}
-          >
-            <Select allowClear></Select>
-          </Form.Item>
+        <Form.Item
+          name="roleModerator"
+          label="Role Moderator"
+          rules={[{ required: false }]}
+        >
+          <Select allowClear></Select>
+        </Form.Item>
 
-          <Form.Item
-            name="isActive"
-            label="Is Active"
-            rules={[{ required: true }]}
+        <Form.Item
+          name="isActive"
+          label="Is Active"
+          rules={[{ required: true }]}
+        >
+          <Switch checked={true} />
+        </Form.Item>
+        <div className="text-right">
+          <Button
+            type="primary"
+            htmlType="submit"
+            icon={<SaveOutlined />}
+            disabled={true}
           >
-            <Switch checked={true} />
-          </Form.Item>
-          <div className="text-right">
-            <Button
-              type="primary"
-              htmlType="submit"
-              icon={<SaveOutlined />}
-              disabled={true}
-            >
-              Submit
-            </Button>
-          </div>
-        </Form>
-      }
-    ></ContentAdd>
+            Submit
+          </Button>
+        </div>
+      </Form>
+    </ContentAdd>
   );
 };
 

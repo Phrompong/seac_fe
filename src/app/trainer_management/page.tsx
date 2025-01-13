@@ -3,7 +3,7 @@ import Content from "@/components/content";
 import { Button, Flex, Tag } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { PlusCircleOutlined, RedoOutlined } from "@ant-design/icons";
+import { RedoOutlined } from "@ant-design/icons";
 import ButtonAdd from "@/components/button_add";
 
 const TrainerManagement = () => {

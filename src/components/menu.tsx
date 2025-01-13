@@ -1,8 +1,8 @@
 "use client";
-import React, { Children, useState } from "react";
-import { Button, Menu, Layout } from "antd";
+import React, { useState } from "react";
+import { Menu, Layout, MenuProps } from "antd";
 import { useRouter, usePathname } from "next/navigation";
-import Icon, {
+import {
   ScheduleOutlined,
   PlusCircleOutlined,
   ContactsOutlined,
@@ -19,7 +19,7 @@ import Icon, {
 import WhiteLogo from "../../public/images/white_logo.png";
 import Image from "next/image";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Sider } = Layout;
 
 const MainMenu = () => {
   const pathname = usePathname();
@@ -56,15 +56,7 @@ const MainMenu = () => {
         return ["12"];
     }
   };
-
-  const [defaultSelectKey, setDefaultSelectKey] = useState(
-    selectMenu(pathname)
-  );
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
-
+  const [defaultSelectKey] = useState(selectMenu(pathname));
   const items = [
     {
       key: "0",
@@ -181,7 +173,7 @@ const MainMenu = () => {
     },
   ];
 
-  const onSelectedMenu = (e: any) => {
+  const onSelectedMenu: MenuProps["onClick"] = (e) => {
     switch (e.key) {
       case "0-0":
         router.push("/home");
@@ -189,7 +181,6 @@ const MainMenu = () => {
       case "0-1":
         router.push("/auth");
         break;
-
       case "8":
         router.push("/moderator_management");
         break;

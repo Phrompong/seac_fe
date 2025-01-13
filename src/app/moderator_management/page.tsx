@@ -28,7 +28,7 @@ const RoomList = [
 const Rooms = () => {
   return (
     <Flex vertical>
-      {RoomList.map((room, index) => (
+      {RoomList.map((room) => (
         <>
           <Divider style={{ borderColor: "#D3D3D3" }}>
             {room.roomName} (1)
@@ -104,6 +104,7 @@ const renderMode = (mode: string) => {
 };
 
 const ModeratorManagement = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const reducer = (state: any, action: any) => {
     switch (action.type) {
       case "date":
@@ -111,6 +112,7 @@ const ModeratorManagement = () => {
       case "week":
         return {
           picker: "week",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           format: (value: any) => {
             const weekNumber = dayjs(value).isoWeek();
             const year = dayjs(value).isoWeekYear();
@@ -138,6 +140,7 @@ const ModeratorManagement = () => {
           <DatePicker
             style={{ width: "220px" }}
             format={state?.format}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             picker={state?.picker as any}
             defaultValue={dayjs()}
           />

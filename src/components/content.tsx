@@ -1,15 +1,15 @@
 "use client";
-import { Button, Flex, Table, Tag } from "antd";
+import { Table } from "antd";
 import React, { FC } from "react";
-import { PlusCircleOutlined, RedoOutlined } from "@ant-design/icons";
 
 type Content = {
   title: string;
   btnCreateName?: string;
   columns?: { title: string; dataIndex: string; key: string }[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dataSource?: any[];
   onClick?: () => void;
-  children?: any;
+  children?: React.ReactNode;
   childrenHeader?: React.ReactNode;
 };
 

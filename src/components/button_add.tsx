@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { PlusCircleOutlined, RedoOutlined } from "@ant-design/icons";
+import { PlusCircleOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 
 const ButtonAdd: FC<{ name: string; onClick: () => void }> = (param) => {

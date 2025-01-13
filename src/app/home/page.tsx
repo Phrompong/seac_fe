@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 
 const Home = () => {
   const router = useRouter();
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const menuList: { label: any; key: string }[] = [
     {
       label: <label className="sm:text:sm lg:text-xl">User Management</label>,
@@ -25,8 +25,8 @@ const Home = () => {
     },
   ];
 
-  const [current, setCurrent] = useState("");
-
+  const [current] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onChangeMenu = (e: any) => {
     switch (e.key) {
       case "user_management":
