@@ -29,7 +29,7 @@ const Home = () => {
 
   const onChangeMenu = (e: any) => {
     switch (e.key) {
-      case "user-user_management":
+      case "user_management":
         router.push("/user_management");
         break;
         break;

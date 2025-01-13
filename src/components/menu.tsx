@@ -189,6 +189,10 @@ const MainMenu = () => {
       case "0-1":
         router.push("/auth");
         break;
+
+      case "8":
+        router.push("/moderator_management");
+        break;
       case "9":
         router.push("/content_management");
         break;
